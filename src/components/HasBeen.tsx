@@ -1,7 +1,7 @@
 import {  ToggleButtonGroup, ToggleButton, Typography } from "@mui/material"
 
 export const HasBeen = ({hasBeen, setHasBeen}:{hasBeen:boolean|null, setHasBeen:(param:boolean)=>void})=>{
-    const handleChange=(event: React.MouseEvent<HTMLElement, MouseEvent>, value: string)=>{
+    const handleChange=(_: React.MouseEvent<HTMLElement, MouseEvent>, value: string)=>{
 console.log(value)
 setHasBeen(value==='да')
     }
