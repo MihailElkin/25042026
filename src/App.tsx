@@ -7,15 +7,19 @@ import { Button } from '@mui/material';
 import { sendData } from './utils/sendData';
 
 function App() {
+
+console.log( document.location.search)
+
+const id = Number(document.location.search.replace('?id=',''))
   const [answer, setAnswer] = useState<TAnswer>({
-    id:0,
+    id:id,
     isHasBeen: null,
     isChildHasBeen: null,
     alcohol:[],
     message: '',
 });
 
-  const setHasBeen = (param:boolean) => {
+  const setHasBeen = (param:TAnswer['isHasBeen']) => {
     setAnswer((prev)=>({...prev, isHasBeen:param}));
   };
   const send = ()=>{
@@ -24,7 +28,7 @@ function App() {
 
   return (
     <div>
-      <h1>{'Дорогие '+guestsList[0].names}</h1>
+      <h1>{'Дорогие '+guestsList[id].names}</h1>
 <HasBeen setHasBeen={setHasBeen} hasBeen={answer.isHasBeen}/>
 <Button onClick={send}>отправить</Button>
     </div>

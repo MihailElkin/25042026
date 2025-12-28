@@ -5,7 +5,7 @@ export type TGuest = {
 }
 export type TAnswer = {
     id:number;
-    isHasBeen:boolean|null;
+    isHasBeen:'Да'| 'Только ЗАГС' |'Только банкет'| 'Нет' |null;
     isChildHasBeen:boolean|null;
     alcohol:string[];
     message:string;

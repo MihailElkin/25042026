@@ -1,9 +1,10 @@
 import {  ToggleButtonGroup, ToggleButton, Typography } from "@mui/material"
+import type { TAnswer } from "../models"
 
-export const HasBeen = ({hasBeen, setHasBeen}:{hasBeen:boolean|null, setHasBeen:(param:boolean)=>void})=>{
-    const handleChange=(_: React.MouseEvent<HTMLElement, MouseEvent>, value: string)=>{
+export const HasBeen = ({hasBeen, setHasBeen}:{hasBeen:TAnswer['isHasBeen'], setHasBeen:(param:TAnswer['isHasBeen'])=>void})=>{
+    const handleChange=(_: React.MouseEvent<HTMLElement, MouseEvent>, value: TAnswer['isHasBeen'])=>{
 console.log(value)
-setHasBeen(value==='да')
+setHasBeen(value)
     }
 
     return(<>     
@@ -15,8 +16,10 @@ setHasBeen(value==='да')
   onChange={handleChange}
   aria-label="Platform"
 >
-  <ToggleButton value="да">да</ToggleButton>
-  <ToggleButton value="нет">нет</ToggleButton>
+  <ToggleButton value="Да">Да</ToggleButton>
+  <ToggleButton value="Только ЗАГС">Только ЗАГС</ToggleButton>
+  <ToggleButton value="Только банкет">Только банкет</ToggleButton>
+  <ToggleButton value="Нет">Нет</ToggleButton>
 </ToggleButtonGroup></>
 )
 }
