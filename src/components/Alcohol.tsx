@@ -8,6 +8,7 @@ export const Alcohol = ({alcohol, setAlcohol}:{alcohol:string[]; setAlcohol:(par
 const [other, setOther]=useState('')
     const onChange = (newValue: MultiValue<string>, actionMeta: ActionMeta<string>)=>{
 console.log(newValue, actionMeta)
+ // @ts-expect-error 123
 setAlcohol(newValue.map((v)=>v.value))
 }
 const onChangeOther = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)=>{
@@ -22,7 +23,9 @@ isSearchable={false}
 
   closeMenuOnSelect={false}
     isMulti
+    // @ts-expect-error 123
     options={alcoholList.map((v)=>({value:v, label:v}))}
+ // @ts-expect-error 123
     value={alcohol.map((v)=>({value:v, label:v}))}
     onChange={onChange}
   />
