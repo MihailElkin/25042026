@@ -7,6 +7,7 @@ import { Button, TextareaAutosize, Typography } from '@mui/material';
 import { sendData } from './utils/sendData';
 import { ChildHasBeen } from './components/ChildHasBeen';
 import { Alcohol } from './components/Alcohol';
+import { Header } from './components/Header';
 
 
 
@@ -63,10 +64,11 @@ const setMesage = (event: React.ChangeEvent<HTMLTextAreaElement>)=>{
   const send = ()=>{
     sendData(answer)
   }
+  if(!guest)return
 
   return (
     <div>
-      <h1>{'Дорогие '+guest?.names}</h1>
+      <Header guest={guest}/>
 <HasBeen setHasBeen={setHasBeen} hasBeen={answer.isHasBeen}/>
 {guest?.isHasChild?<ChildHasBeen setHasBeen={setChildHasBeen} hasBeen={answer.isChildHasBeen}/>:null
 }
