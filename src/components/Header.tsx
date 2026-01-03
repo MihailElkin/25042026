@@ -1,6 +1,5 @@
-import { Container, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import type { TGuest } from "../models";
-import pic from '../assets/img/c83bbe3c68fc9a80559b4b60f970ebb8f48ba46b.png'; 
 
 export const Header = ({guest}:{guest:TGuest})=>{
 

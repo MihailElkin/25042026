@@ -1,12 +1,12 @@
 #root {
+  width: 100vw;
   max-width: 480px;
+  min-width: 300px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
 .header {
-  width:480px;
 height:916px;
 background: no-repeat center/80% url('./assets/img/c83bbe3c68fc9a80559b4b60f970ebb8f48ba46b.png'), linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
 
