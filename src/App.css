@@ -5,39 +5,80 @@
   margin: 0 auto;
   text-align: center;
   display: flex;
-flex-direction: column;
-justify-content: space-around;
-align-items: center;
-gap: 17px;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 17px;
 }
 
 .header {
-height:916px;
-background: no-repeat center/80% url('./assets/img/c83bbe3c68fc9a80559b4b60f970ebb8f48ba46b.png'), linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
-margin-bottom: 37px;
+  height: 916px;
+  background:
+    no-repeat center/80%
+      url("./assets/img/c83bbe3c68fc9a80559b4b60f970ebb8f48ba46b.png"),
+    linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+  margin-bottom: 37px;
 }
 
 .card {
-border-radius: 9px;
-border: 1px solid black;
-display: flex;
-flex-direction: column;
-justify-content: space-around;
-align-items: center;
+  border-radius: 16px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.cofo500 {
+  font-family: "CoFoRaffine" !important;
+  font-weight: 500 !important;
+  z-index: 1;
+  position: relative;
+  line-height: 100% !important;
+}
+.bad400 {
+  font-family: "BadScript" !important;
+  font-weight: 400 !important;
+  z-index: 1;
+  font-style: italic !important;
+  position: relative;
+  line-height: 100% !important;
+}
+
+.restTime {
+  display: flex;
+  justify-content: space-between !important;
+  width: -webkit-fill-available !important;
+  padding: 0 20px;
+}
+.restCard {
+  animation-duration: 0.3s;
+  animation-name: slidein;
 }
 
 @font-face {
-  font-family: 'CoFoRaffine'; 
-  src: url('./assets/fonts/CoFoRaffine-VF-Trial.ttf') format('woff2'),
-       url('./assets/fonts/CoFoRaffine-VF-Trial.ttf') format('woff');
+  font-family: "CoFoRaffine";
+  src:
+    url("./assets/fonts/CoFoRaffine-VF-Trial.ttf") format("woff2"),
+    url("./assets/fonts/CoFoRaffine-VF-Trial.ttf") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'BadScript'; 
-  src: url('./assets/fonts/BadScript-Regular.ttf') format('woff2'),
-       url('./assets/fonts/BadScript-Regular.ttf') format('woff');
+  font-family: "BadScript";
+  src:
+    url("./assets/fonts/BadScript-Regular.ttf") format("woff2"),
+    url("./assets/fonts/BadScript-Regular.ttf") format("woff");
   font-weight: normal;
   font-style: normal;
+}
+
+@keyframes slidein {
+  from {
+    height: 0px;
+  }
+
+  to {
+    height: 359px;
+  }
 }
