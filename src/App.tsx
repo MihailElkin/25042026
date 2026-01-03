@@ -8,6 +8,7 @@ import { sendData } from './utils/sendData';
 import { ChildHasBeen } from './components/ChildHasBeen';
 import { Alcohol } from './components/Alcohol';
 import { Header } from './components/Header';
+import { RegistrInfo } from './components/RegistrInfo';
 
 
 
@@ -69,6 +70,7 @@ const setMesage = (event: React.ChangeEvent<HTMLTextAreaElement>)=>{
   return (
     <div>
       <Header guest={guest}/>
+      <RegistrInfo/>
 <HasBeen setHasBeen={setHasBeen} hasBeen={answer.isHasBeen}/>
 {guest?.isHasChild?<ChildHasBeen setHasBeen={setChildHasBeen} hasBeen={answer.isChildHasBeen}/>:null
 }

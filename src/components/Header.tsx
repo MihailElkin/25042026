@@ -36,7 +36,9 @@ zIndex:1,
 position:'relative',
 lineHeight: '100%',
 fontSize: '40px',
-top:'600px'
+top:'600px',
+width:'270px',
+margin:'0 auto'
 }}>{'Дорогие '+guest.names}
 </Typography>
 
