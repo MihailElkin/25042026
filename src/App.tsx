@@ -1,20 +1,23 @@
 import { useState } from 'react'
 import './App.css'
-import { guestsList, storageId } from './constants'
+import { errorText, guestsList, storageId, successText } from './constants'
 import { HasBeen } from './components/HasBeen';
 import type { TAnswer } from './models';
-import { Button, createTheme, TextareaAutosize, ThemeProvider, Typography } from '@mui/material';
+import { Alert, createTheme, ThemeProvider, Typography } from '@mui/material';
 import { sendData } from './utils/sendData';
 import { ChildHasBeen } from './components/ChildHasBeen';
 import { Alcohol } from './components/Alcohol';
 import { Header } from './components/Header';
 import { RegistrInfo } from './components/RegistrInfo';
 import { RestInfo } from './components/RestInfo';
+import { ValeraInfo } from './components/ValeraInfo';
+import { Message } from './components/Message';
+import { Footer } from './components/Footer';
 
 
 
 function App() {
-
+  const [sendState, setSendState] = useState<boolean | null>(null)
 
   const theme = createTheme({
     typography: {
@@ -68,17 +71,25 @@ function App() {
     console.log(param)
     setAnswer((prev) => ({ ...prev, alcohol: param }));
   };
-  const setMesage = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setAnswer((prev) => ({ ...prev, message: event.target.value }));
+  const setMessage = (param: string) => {
+    setAnswer((prev) => ({ ...prev, message: param }));
   }
 
-  const send = () => {
-    sendData(answer)
+  const send = async () => {
+    setSendState(await sendData(answer))
   }
   if (!guest) return
 
   return (
     <div className='root'>
+      {sendState !== null ? (<Alert severity={sendState ? "success" : 'error'} sx={{
+        position: 'sticky',
+        top: '10px',
+        zIndex: 500
+      }}>
+        {sendState ? successText : errorText}
+      </Alert>) : null}
+
       <Header guest={guest} />
       <RegistrInfo />
       <RestInfo />
@@ -94,15 +105,9 @@ function App() {
         }
       </ThemeProvider>
 
-
-
-
-
-
-      <Typography>сообщение</Typography>
-      <TextareaAutosize minRows={1} maxRows={5} maxLength={500} onChange={setMesage} />
-
-      <Button onClick={send}>отправить</Button>
+      <ValeraInfo />
+      <Message setMessage={setMessage} />
+      <Footer onSubmit={send} />
     </div>
   )
 }

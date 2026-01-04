@@ -3,7 +3,7 @@ import rings from '../assets/img/8e392cdf9e1efafc837e1589339bd83d31992961.png'
 
 export const RegistrInfo = () => {
     return (
-        <div className="card" style={{ width: '344px', height: '200px', padding: '16px 8px' }}>
+        <div className="card" style={{ width: '92%', height: '200px', padding: '16px 8px' }}>
             <img src={rings} width='162px' style={{ position: 'absolute', margin: '25px 0px 0px 173px' }} />
             <Typography className="cofo500" sx={{
                 fontSize: '40px',

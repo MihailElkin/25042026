@@ -23,7 +23,7 @@ export const Alcohol = ({ alcohol, setAlcohol }: { alcohol: string[]; setAlcohol
     setAlcohol([...alcohol.filter((f) => !f.includes('Другое')), `Другое: ${other}`])
   }
 
-  return (<div className="card" style={{ width: '395px', transition: '0.5s cubic-bezier(0.7, 0.01, 0.15, 0.99)', height: isShowOther ? '688px' : '613px' }}>
+  return (<div className="card" style={{ width: '92%', transition: '0.5s cubic-bezier(0.7, 0.01, 0.15, 0.99)', height: isShowOther ? '688px' : '613px' }}>
     <Typography style={{ fontSize: '29px', padding: '32px 10px', width: '350px' }} className="cofo500">Предпочтения по напиткам (можно выбрать несколько)</Typography>
     <div style={{ width: '100%', height: '0px', border: '1px solid black' }} />
     <div style={{

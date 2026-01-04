@@ -13,7 +13,7 @@ export const RestInfo = () => {
     return (
         <div
             className="card"
-            style={{ width: "344px", height: isVisible ? 571 : 212, padding: "16px 8px", transition: '0.5s cubic-bezier(0.7, 0.01, 0.15, 0.99)' }}
+            style={{ width: "92%", height: isVisible ? 571 : 212, padding: "16px 8px", transition: '0.5s cubic-bezier(0.7, 0.01, 0.15, 0.99)' }}
         >
             <img
                 src={drinks}

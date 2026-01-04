@@ -12,6 +12,7 @@
   justify-content: space-around;
   align-items: center;
   gap: 17px;
+  width: -webkit-fill-available !important;
 }
 
 .header {
@@ -21,6 +22,15 @@
       url("./assets/img/c83bbe3c68fc9a80559b4b60f970ebb8f48ba46b.png"),
     linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
   margin-bottom: 37px;
+}
+
+.footer {
+  height: 630px;
+  margin-top: -117px;
+  background:
+    no-repeat center/100%
+      url("./assets/img/c613c96796ed3750898c128e7c0d5985a96419f6.png"),
+    linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 .card {

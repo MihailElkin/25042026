@@ -42,3 +42,8 @@ export const alcoholList = [
 ];
 
 export const storageId = "25042026id";
+
+export const errorText =
+  "Что-то пошло не так, попробуйте еще раз или свяжитесь с нами!";
+
+export const successText = "Ваша анкета успено отправлена!";

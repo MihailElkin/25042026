@@ -7,7 +7,7 @@ export const HasBeen = ({ hasBeen, setHasBeen }: { hasBeen: TAnswer['isHasBeen']
     setHasBeen(value as TAnswer['isHasBeen'])
   }
 
-  return (<div className="card" style={{ width: '395px', height: '466px' }}>
+  return (<div className="card" style={{ width: '92%', height: '466px' }}>
     <Typography style={{ fontSize: '29px', padding: '32px 10px'}} className="cofo500">Сможете ли вы разделить
       с нами радость этого дня?</Typography>
       <div style={{ width: '100%', height: '0px', border: '1px solid black' }} />
