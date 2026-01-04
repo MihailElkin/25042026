@@ -2,6 +2,9 @@ import { Typography } from "@mui/material";
 import type { TGuest } from "../models";
 
 export const Header = ({ guest }: { guest: TGuest }) => {
+    let firstText= 'Дорогие '
+    if(guest.isSingle==='m') firstText='Дорогой '
+       if(guest.isSingle==='f') firstText='Дорогая '
 
     return (
         <div className="header" >
@@ -38,7 +41,7 @@ export const Header = ({ guest }: { guest: TGuest }) => {
                 fontSize: '40px',
                 width: '270px',
                 margin: '325px auto 0px auto'
-            }}>{'Дорогие ' + guest.names}
+            }}>{firstText + guest.names}
             </Typography>
 
             <Typography className='bad400' sx={{

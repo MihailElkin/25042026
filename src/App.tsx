@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import { errorText, guestsList, storageId, successText } from './constants'
 import { HasBeen } from './components/HasBeen';
@@ -17,16 +17,12 @@ import { Footer } from './components/Footer';
 
 
 function App() {
-  const [sendState, setSendState] = useState<boolean | null>(null)
-
   const theme = createTheme({
     typography: {
       fontFamily: "BadScript",
       fontSize: 18,
     },
   });
-
-  console.log(document.location.search)
 
   let id = Number(document.location.search.replace('?id=', ''))
   let guest
@@ -46,20 +42,16 @@ function App() {
 
   if (!guest) alert('чтото пошло не так, напиши нам')
 
-
-
-
-
   const [answer, setAnswer] = useState<TAnswer>({
     id: id,
+     names:guest?.names||String(id),
     isHasBeen: null,
     isChildHasBeen: null,
     alcohol: [],
     message: '',
   });
 
-
-
+  const [sendState, setSendState] = useState<boolean | null>(null)
 
   const setHasBeen = (param: TAnswer['isHasBeen']) => {
     setAnswer((prev) => ({ ...prev, isHasBeen: param }));
@@ -78,6 +70,8 @@ function App() {
   const send = async () => {
     setSendState(await sendData(answer))
   }
+useEffect(()=>{if (sendState) localStorage.setItem('25042026send', 'true')},[sendState])
+
   if (!guest) return
 
   return (
@@ -107,7 +101,7 @@ function App() {
 
       <ValeraInfo />
       <Message setMessage={setMessage} />
-      <Footer onSubmit={send} />
+      <Footer onSubmit={send} isCanSand={!sendState &&  !!answer.isHasBeen &&!localStorage.getItem('25042026send') }/>
     </div>
   )
 }

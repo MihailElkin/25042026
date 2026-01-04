@@ -9,7 +9,7 @@ export const sendData = async (answer: TAnswer) => {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: `id=${encodeURIComponent(answer.id)}&isHasBeen=${encodeURIComponent(String(answer.isHasBeen))}
+        body: `id=${encodeURIComponent(answer.id + " - " + answer.names)}&isHasBeen=${encodeURIComponent(String(answer.isHasBeen))}
     &isChildHasBeen=${encodeURIComponent(String(answer.isChildHasBeen))}&alcohol=${encodeURIComponent(answer.alcohol.join(", "))}&message=${encodeURIComponent(answer.message)}`,
       }
     );

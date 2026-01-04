@@ -19,7 +19,7 @@ export const guestsList: TGuest[] = [
   {
     id: 3,
     names: "Андрей и Ксения",
-    isHasChild: false,
+    isHasChild: true,
   },
   {
     id: 4,

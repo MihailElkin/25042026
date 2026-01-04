@@ -1,6 +1,6 @@
 import { Button, Typography } from "@mui/material";
 
-export const Footer = ({ onSubmit }: { onSubmit: ()=>void }) => {
+export const Footer = ({ onSubmit, isCanSand }: { onSubmit: ()=>void, isCanSand:boolean}) => {
 
     return (
         <div className="footer" >
@@ -17,7 +17,7 @@ export const Footer = ({ onSubmit }: { onSubmit: ()=>void }) => {
                 margin: '28px auto 0 auto'
             }}>Нажмите на волшебную кнопку — и ваши ответы сразу окажутся у нас.</Typography>
 
-      <Button onClick={onSubmit} variant='outlined' className="cofo500" sx={{ marginTop:'25px', fontSize: "30px", color: 'black', textTransform: 'none', borderColor: 'black' }}><span>Отправить</span> 
+      <Button disabled={!isCanSand} onClick={onSubmit} variant='outlined' className="cofo500" sx={{ marginTop:'25px', fontSize: "30px", color: 'black', textTransform: 'none', borderColor: 'black' }}><span>Отправить</span> 
       <span style={{color:'red'}}>♥
         </span></Button>
 
