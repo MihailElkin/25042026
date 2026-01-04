@@ -4,6 +4,9 @@
   min-width: 300px;
   margin: 0 auto;
   text-align: center;
+}
+
+.root {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -12,9 +15,9 @@
 }
 
 .header {
-  height: 916px;
+  height: 690px;
   background:
-    no-repeat center/80%
+    no-repeat center/100%
       url("./assets/img/c83bbe3c68fc9a80559b4b60f970ebb8f48ba46b.png"),
     linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
   margin-bottom: 37px;
@@ -41,7 +44,7 @@
   z-index: 1;
   font-style: italic !important;
   position: relative;
-  line-height: 100% !important;
+  line-height: 29px !important;
 }
 
 .restTime {
@@ -51,8 +54,7 @@
   padding: 0 20px;
 }
 .restCard {
-  animation-duration: 0.3s;
-  animation-name: slidein;
+  transition: "0.5s cubic-bezier(0.7, 0.01, 0.15, 0.99)";
 }
 
 @font-face {
@@ -71,14 +73,4 @@
     url("./assets/fonts/BadScript-Regular.ttf") format("woff");
   font-weight: normal;
   font-style: normal;
-}
-
-@keyframes slidein {
-  from {
-    height: 0px;
-  }
-
-  to {
-    height: 359px;
-  }
 }

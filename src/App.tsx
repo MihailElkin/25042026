@@ -3,7 +3,7 @@ import './App.css'
 import { guestsList, storageId } from './constants'
 import { HasBeen } from './components/HasBeen';
 import type { TAnswer } from './models';
-import { Button, TextareaAutosize, Typography } from '@mui/material';
+import { Button, createTheme, TextareaAutosize, ThemeProvider, Typography } from '@mui/material';
 import { sendData } from './utils/sendData';
 import { ChildHasBeen } from './components/ChildHasBeen';
 import { Alcohol } from './components/Alcohol';
@@ -15,73 +15,94 @@ import { RestInfo } from './components/RestInfo';
 
 function App() {
 
-console.log( document.location.search)
 
-let id = Number(document.location.search.replace('?id=',''))
-let guest
-if(id===99){
-  localStorage.clear()
-   guest = guestsList.find((f)=>f.id===id)
-}
-else {
-const pastId = localStorage.getItem(storageId)
-if(pastId && Number(window.atob(pastId))!==id) {
-  alert('жулик') 
-  id=Number(window.atob(pastId))
-} 
-guest = guestsList.find((f)=>f.id===id)
-if(!pastId && guest)  localStorage.setItem(storageId,window.btoa(String(id)))
-}
+  const theme = createTheme({
+    typography: {
+      fontFamily: "BadScript",
+      fontSize: 18,
+    },
+  });
 
-if(!guest) alert('чтото пошло не так, напиши нам')
+  console.log(document.location.search)
+
+  let id = Number(document.location.search.replace('?id=', ''))
+  let guest
+  if (id === 99) {
+    localStorage.clear()
+    guest = guestsList.find((f) => f.id === id)
+  }
+  else {
+    const pastId = localStorage.getItem(storageId)
+    if (pastId && Number(window.atob(pastId)) !== id) {
+      alert('жулик')
+      id = Number(window.atob(pastId))
+    }
+    guest = guestsList.find((f) => f.id === id)
+    if (!pastId && guest) localStorage.setItem(storageId, window.btoa(String(id)))
+  }
+
+  if (!guest) alert('чтото пошло не так, напиши нам')
 
 
-  
- 
+
+
 
   const [answer, setAnswer] = useState<TAnswer>({
-    id:id,
+    id: id,
     isHasBeen: null,
     isChildHasBeen: null,
-    alcohol:[],
+    alcohol: [],
     message: '',
-});
+  });
 
 
 
 
-  const setHasBeen = (param:TAnswer['isHasBeen']) => {
-    setAnswer((prev)=>({...prev, isHasBeen:param}));
+  const setHasBeen = (param: TAnswer['isHasBeen']) => {
+    setAnswer((prev) => ({ ...prev, isHasBeen: param }));
   };
-    const setChildHasBeen = (param:TAnswer['isChildHasBeen']) => {
-    setAnswer((prev)=>({...prev, isChildHasBeen:param}));
+  const setChildHasBeen = (param: TAnswer['isChildHasBeen']) => {
+    setAnswer((prev) => ({ ...prev, isChildHasBeen: param }));
   };
-      const setAlcohol = (param:TAnswer['alcohol']) => {
-    setAnswer((prev)=>({...prev, alcohol:param}));
+  const setAlcohol = (param: TAnswer['alcohol']) => {
+    console.log(param)
+    setAnswer((prev) => ({ ...prev, alcohol: param }));
   };
-const setMesage = (event: React.ChangeEvent<HTMLTextAreaElement>)=>{
-    setAnswer((prev)=>({...prev, message:event.target.value}));
-}
+  const setMesage = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setAnswer((prev) => ({ ...prev, message: event.target.value }));
+  }
 
-  const send = ()=>{
+  const send = () => {
     sendData(answer)
   }
-  if(!guest)return
+  if (!guest) return
 
   return (
-    <div>
-      <Header guest={guest}/>
-      <RegistrInfo/>
-      <RestInfo/>
-<HasBeen setHasBeen={setHasBeen} hasBeen={answer.isHasBeen}/>
-{guest?.isHasChild?<ChildHasBeen setHasBeen={setChildHasBeen} hasBeen={answer.isChildHasBeen}/>:null
-}
-<Alcohol alcohol={answer.alcohol} setAlcohol={setAlcohol} />
+    <div className='root'>
+      <Header guest={guest} />
+      <RegistrInfo />
+      <RestInfo />
+      <Typography className='cofo500' style={{ fontSize: 40 }}>Анкета</Typography>
+      <Typography className='bad400' style={{ fontSize: 18, width: '369px' }}>Для того чтобы наш праздник стал по-настоящему тёплым, комфортным и запоминающимся для каждого, нам очень важно знать ваши планы. Пожалуйста, уделите несколько минут, чтобы заполнить короткую анкету.
+      </Typography>
+      <Typography className='bad400' style={{ fontSize: 18, width: '369px' }}>Для нашего спокойного планирования, пожалуйста, отправьте анкету до 15 марта 2026 года.</Typography>
 
-<Typography>сообщение</Typography>
-<TextareaAutosize minRows={1} maxRows={5} maxLength={500} onChange={setMesage}/>
+      <ThemeProvider theme={theme}>
+        <HasBeen setHasBeen={setHasBeen} hasBeen={answer.isHasBeen} />
+        <Alcohol alcohol={answer.alcohol} setAlcohol={setAlcohol} />
+        {guest?.isHasChild ? <ChildHasBeen setHasBeen={setChildHasBeen} hasBeen={answer.isChildHasBeen} /> : null
+        }
+      </ThemeProvider>
 
-<Button onClick={send}>отправить</Button>
+
+
+
+
+
+      <Typography>сообщение</Typography>
+      <TextareaAutosize minRows={1} maxRows={5} maxLength={500} onChange={setMesage} />
+
+      <Button onClick={send}>отправить</Button>
     </div>
   )
 }

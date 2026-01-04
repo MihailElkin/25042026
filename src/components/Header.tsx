@@ -37,7 +37,7 @@ export const Header = ({ guest }: { guest: TGuest }) => {
             <Typography className='cofo500' sx={{
                 fontSize: '40px',
                 width: '270px',
-                margin: '500px auto 0px auto'
+                margin: '325px auto 0px auto'
             }}>{'Дорогие ' + guest.names}
             </Typography>
 

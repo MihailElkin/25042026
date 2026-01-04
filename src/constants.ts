@@ -1,38 +1,44 @@
 import type { TGuest } from "./models";
 
-export const guestsList:TGuest[]=[{
+export const guestsList: TGuest[] = [
+  {
     id: 0,
     names: "Георгий и Наталия",
-    isHasChild: false
-},
-{
+    isHasChild: false,
+  },
+  {
     id: 1,
     names: "Иван и Анна",
-    isHasChild: false
-},
-{
+    isHasChild: false,
+  },
+  {
     id: 2,
     names: "Артем и Ольга",
-    isHasChild: false
-},
-{
+    isHasChild: false,
+  },
+  {
     id: 3,
     names: "Андрей и Ксения",
-    isHasChild: false
-},
-{
+    isHasChild: false,
+  },
+  {
     id: 4,
     names: "Кирилл и Ксения",
-    isHasChild: false
-},
-{
+    isHasChild: false,
+  },
+  {
     id: 99,
     names: "Господин и Госпожа",
-    isHasChild: false
-},
-]
-export const alcoholList = [ 'Б/а напитки',
-'Вино красное', 'Вино белое', 'Водка', 'Другое'
-]
+    isHasChild: true,
+  },
+];
+export const alcoholList = [
+  "Безалкагольные напитки",
+  "Белое вино",
+  "Красное вино",
+  "Водка",
+  "Коньяк",
+  "Другое",
+];
 
-export const storageId = '25042026id'
+export const storageId = "25042026id";

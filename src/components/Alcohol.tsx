@@ -1,47 +1,56 @@
 
-import Select, { type ActionMeta, type MultiValue } from "react-select";
 import { alcoholList } from "../constants";
-import { Button, TextField, Typography } from "@mui/material";
+import { Button, Checkbox, FormControlLabel, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 
-export const Alcohol = ({alcohol, setAlcohol}:{alcohol:string[]; setAlcohol:(param:string[])=>void})=>{
-const [other, setOther]=useState('')
-    const onChange = (newValue: MultiValue<string>, actionMeta: ActionMeta<string>)=>{
-console.log(newValue, actionMeta)
- // @ts-expect-error 123
-setAlcohol(newValue.map((v)=>v.value))
-}
-const onChangeOther = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)=>{
+
+
+export const Alcohol = ({ alcohol, setAlcohol }: { alcohol: string[]; setAlcohol: (param: string[]) => void }) => {
+  const [other, setOther] = useState('')
+  const isShowOther = !!alcohol.filter((f) => f.includes('Другое')).length
+  const onChange = (value: string, checked: boolean) => {
+    if (checked) {
+      setAlcohol([...alcohol, value])
+    } else {
+      setAlcohol(alcohol.filter((f) => !f.includes(value)))
+    }
+
+  }
+  const onChangeOther = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setOther(event.target.value)
-}
-const onSubmitOther = ()=>{
-    setAlcohol([...alcohol,other])
-}
+  }
+  const onSubmitOther = () => {
+    setAlcohol([...alcohol.filter((f) => !f.includes('Другое')), `Другое: ${other}`])
+  }
 
-    return(<> <Select
-isSearchable={false}
+  return (<div className="card" style={{ width: '395px', transition: '0.5s cubic-bezier(0.7, 0.01, 0.15, 0.99)', height: isShowOther ? '688px' : '613px' }}>
+    <Typography style={{ fontSize: '29px', padding: '32px 10px', width: '350px' }} className="cofo500">Предпочтения по напиткам (можно выбрать несколько)</Typography>
+    <div style={{ width: '100%', height: '0px', border: '1px solid black' }} />
+    <div style={{
+      display: 'flex', flexDirection: 'column', gap: '30px'
+    }}>
+      {alcoholList.map((v) => {
+        const onCheck = (_: React.ChangeEvent<HTMLInputElement>, checked: boolean) => {
+          onChange(v, checked)
+        }
+        return (
+          <FormControlLabel
+            label={v}
+            control={<Checkbox onChange={onCheck} />}
+          />
+        )
+      })}
+    </div>
 
-  closeMenuOnSelect={false}
-    isMulti
-    // @ts-expect-error 123
-    options={alcoholList.map((v)=>({value:v, label:v}))}
- // @ts-expect-error 123
-    value={alcohol.map((v)=>({value:v, label:v}))}
-    onChange={onChange}
-  />
-  {alcohol.includes('Другое')?
-<>
-    <Typography>Уточни, что</Typography>
-    <TextField
-    onChange={onChangeOther}
-    value={other}
-    />
-    <Button onClick={onSubmitOther}>Ок</Button>
-</>  :null
-
-}
-  
-  </>
- 
-    )
+    {isShowOther ?
+      <div style={{ display: 'flex', gap: '10px', visibility: isShowOther ? 'visible' : 'hidden', opacity: Number(isShowOther) }}>
+        <TextField
+          onChange={onChangeOther}
+          value={other}
+        />
+        <Button variant='outlined' sx={{ color: 'black', textTransform: 'none', borderColor: 'black' }} onClick={onSubmitOther}>Ок</Button>
+      </div> : null
+    }
+  </div>
+  )
 }
