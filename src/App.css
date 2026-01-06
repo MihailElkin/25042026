@@ -46,7 +46,7 @@
 }
 .cofo500 {
   font-family: "CoFoRaffine" !important;
-  font-weight: 500 !important;
+  font-weight: bold !important;
   z-index: 1;
   position: relative;
   line-height: 100% !important;
