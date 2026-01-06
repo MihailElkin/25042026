@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material"
-import mic from '../assets/img/38055d90a67ccb82eaaf98d21188a32140d01927.png'
+import mic from '../assets/img/ыыыыыы 1.png'
 
 export const ValeraInfo = () => {
     return (

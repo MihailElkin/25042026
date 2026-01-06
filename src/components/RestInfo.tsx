@@ -1,6 +1,6 @@
 import { Button, Typography } from "@mui/material";
 import drinks from "../assets/img/freepik_img1_two_full_champagne_glasses_on_white_backgrou_21870.png";
-import way from '../assets/img/83fe65c48200a145839afec54f214a5101d0156b.png'
+import way from '../assets/img/Монтажная область 1 1.png'
 import { useState } from "react";
 
 export const RestInfo = () => {

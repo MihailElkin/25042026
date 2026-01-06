@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material"
-import rings from '../assets/img/8e392cdf9e1efafc837e1589339bd83d31992961.png'
+import rings from '../assets/img/freepik__-img1-simple-pair-of-wedding-rings-on-white-backgr__21863 1.png'
 
 export const RegistrInfo = () => {
     return (
