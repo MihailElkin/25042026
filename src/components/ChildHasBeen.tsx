@@ -7,10 +7,10 @@ export const ChildHasBeen = ({ hasBeen, setHasBeen }: { hasBeen: TAnswer['isChil
     setHasBeen(value as TAnswer['isChildHasBeen'])
   }
 
-  return (<div className="card" style={{ width: '92%', height: '321px' }}>
-    <Typography style={{ fontSize: '29px', padding: '32px 10px' }} className="cofo500">Будут ли
+  return (<div className="card" style={{ width: '92%' }}>
+    <Typography style={{ fontSize: '29px' }} className="cofo500">Будут ли
       с вами дети?</Typography>
-    <div style={{ width: '100%', height: '0px', border: '1px solid black' }} />
+    <div style={{ width: '100%', height: '0px', border: '0.5px solid black', margin:'35px 0px' }} />
     <RadioGroup
       name="controlled-radio-buttons-group"
       value={hasBeen}

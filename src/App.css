@@ -16,17 +16,19 @@
 }
 
 .header {
-  height: 690px;
+  align-items: center;
+
+  padding-top: 12px;
+  height: 725px;
   background:
-    no-repeat center/100%
-      url("./assets/img/c83bbe3c68fc9a80559b4b60f970ebb8f48ba46b.png"),
+    no-repeat center/100% url("./assets/img/photo_2026-01-06\ 19.49.44.jpeg"),
     linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
   margin-bottom: 37px;
 }
 
 .footer {
   height: 630px;
-  margin-top: -117px;
+  margin-top: -90px;
   background:
     no-repeat center/100%
       url("./assets/img/c613c96796ed3750898c128e7c0d5985a96419f6.png"),
@@ -34,6 +36,7 @@
 }
 
 .card {
+  padding: 35px 8px;
   border-radius: 16px;
   border: 1px solid black;
   display: flex;

@@ -40,16 +40,22 @@ export const Header = ({ guest }: { guest: TGuest }) => {
             <Typography className='cofo500' sx={{
                 fontSize: '40px',
                 width: '270px',
-                margin: '325px auto 0px auto'
-            }}>{firstText + guest.names}
+                margin: '340px auto 0px auto'
+            }}>{firstText}
+            </Typography>
+                 <Typography className='cofo500' sx={{
+                fontSize: '40px',
+                width: '340px',
+            }}>{guest.names}
             </Typography>
 
             <Typography className='bad400' sx={{
                 fontSize: '18px',
                 width: 348,
                 height: 174,
-                margin: '28px auto 0 auto'
-            }}>{'Наше самое важное путешествие – путешествие в семейную жизнь, начинается со дня нашей свадьбы. Будем рады, если Вы станете нашими попутчиками в этот особенный день – 25 апреля 2026 года.'}
+                margin: '28px auto 0 auto',
+                whiteSpace: 'pre-wrap',
+            }}>{'Наше самое важное путешествие – путешествие\nв семейную жизнь, начинается со дня нашей свадьбы. Будем рады, если Вы станете нашими попутчиками в этот особенный день –\n25 апреля 2026 года.'}
             </Typography>
         </div>
 

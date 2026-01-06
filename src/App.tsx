@@ -87,10 +87,10 @@ useEffect(()=>{if (sendState) localStorage.setItem('25042026send', 'true')},[sen
       <Header guest={guest} />
       <RegistrInfo />
       <RestInfo />
-      <Typography className='cofo500' style={{ fontSize: 40 }}>Анкета</Typography>
+      <Typography className='cofo500' style={{ fontSize: 40, marginTop:'20px' }}>Анкета</Typography>
       <Typography className='bad400' style={{ fontSize: 18, width: '369px' }}>Для того чтобы наш праздник стал по-настоящему тёплым, комфортным и запоминающимся для каждого, нам очень важно знать ваши планы. Пожалуйста, уделите несколько минут, чтобы заполнить короткую анкету.
       </Typography>
-      <Typography className='bad400' style={{ fontSize: 18, width: '369px' }}>Для нашего спокойного планирования, пожалуйста, отправьте анкету до 15 марта 2026 года.</Typography>
+      <Typography className='bad400' style={{ fontSize: 18, width: '369px' ,marginBottom:'20px'}}>Для нашего спокойного планирования, пожалуйста, отправьте анкету до 15 марта 2026 года.</Typography>
 
       <ThemeProvider theme={theme}>
         <HasBeen setHasBeen={setHasBeen} hasBeen={answer.isHasBeen} />

@@ -24,8 +24,8 @@ export const Alcohol = ({ alcohol, setAlcohol }: { alcohol: string[]; setAlcohol
   }
 
   return (<div className="card" style={{ width: '92%', transition: '0.5s cubic-bezier(0.7, 0.01, 0.15, 0.99)', height: isShowOther ? '688px' : '613px' }}>
-    <Typography style={{ fontSize: '29px', padding: '32px 10px', width: '350px' }} className="cofo500">Предпочтения по напиткам (можно выбрать несколько)</Typography>
-    <div style={{ width: '100%', height: '0px', border: '1px solid black' }} />
+    <Typography style={{ fontSize: '29px', width: '350px',whiteSpace:'pre-wrap' }} className="cofo500">{'Предпочтения по напиткам\n(можно выбрать несколько)'}</Typography>
+    <div style={{ width: '100%', height: '0px', border: '0.5px solid black', margin:'35px 0px' }} />
     <div style={{
       display: 'flex', flexDirection: 'column', gap: '30px'
     }}>

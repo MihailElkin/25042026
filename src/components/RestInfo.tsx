@@ -1,5 +1,5 @@
 import { Button, Typography } from "@mui/material";
-import drinks from "../assets/img/ef81f1167bc0bf260622c869ace768c2a038e05e.png";
+import drinks from "../assets/img/freepik_img1_two_full_champagne_glasses_on_white_backgrou_21870.png";
 import way from '../assets/img/83fe65c48200a145839afec54f214a5101d0156b.png'
 import { useState } from "react";
 
@@ -13,12 +13,12 @@ export const RestInfo = () => {
     return (
         <div
             className="card"
-            style={{ width: "92%", height: isVisible ? 571 : 212, padding: "16px 8px", transition: '0.5s cubic-bezier(0.7, 0.01, 0.15, 0.99)' }}
+            style={{ width: "92%", height: isVisible ? 616 : 253, transition: '0.5s cubic-bezier(0.7, 0.01, 0.15, 0.99)' }}
         >
             <img
                 src={drinks}
                 width="152px"
-                style={{ position: "absolute", transition: '0.5s cubic-bezier(0.7, 0.01, 0.15, 0.99)', margin: `0px 216px ${isVisible ? '405' : '48'}px 0px` }}
+                style={{ position: "absolute",transition: '0.5s cubic-bezier(0.7, 0.01, 0.15, 0.99)' , margin: `0px 216px ${isVisible ? '514' : '150'}px 0px` }}
             />
             <Typography
                 className="cofo500"
@@ -42,6 +42,7 @@ export const RestInfo = () => {
                 sx={{
                     fontSize: "18px",
                     width: 319,
+                    marginBottom:'35px',
                 }}
             >
                 {"г. Екатеринбург, ул. Восточная, 51, 9 этаж"}
@@ -62,7 +63,7 @@ export const RestInfo = () => {
                         fontSize: "30px",
                     }}
                 >
-                    с 16 :00
+                    с 16:00
                 </Typography>
             </div>
 
@@ -82,14 +83,15 @@ export const RestInfo = () => {
                         fontSize: "30px"
                     }}
                 >
-                    в 17 :00
+                    в 17:00
                 </Typography>
             </div>
-            <Button onClick={onClick} variant='outlined' className="cofo500" sx={{ fontSize: "30px", color: 'black', textTransform: 'none', borderColor: 'black' }}>Как пройти?</Button>
+            <Button onClick={onClick} variant='outlined' className="cofo500" sx={{ fontSize: "30px", color: 'black', textTransform: 'none', borderColor: 'black', marginTop:'20px'}}>Как пройти?</Button>
             <div className='restCard' style={isVisible ? { visibility: 'initial', opacity: 1 } : { visibility: 'hidden', opacity: 0, maxHeight: 0 }}>
                 <img
                     src={way}
                     width="319px"
+                    style={{marginTop:'-20px'}}
                 />
                 <Typography
                     className="bad400"
