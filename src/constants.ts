@@ -39,7 +39,7 @@ export const guestsList: TGuest[] = [
   },
   {
     id: 7,
-    names: "Степен и Анастасия",
+    names: "Степан и Анастасия",
     isHasChild: false,
   },
   {
