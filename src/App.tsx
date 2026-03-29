@@ -52,6 +52,7 @@ function App() {
   });
 
   const [sendState, setSendState] = useState<boolean | null>(null)
+    const [isLoading, setIsLoading] = useState<boolean >(false)
 
   const setHasBeen = (param: TAnswer['isHasBeen']) => {
     setAnswer((prev) => ({ ...prev, isHasBeen: param }));
@@ -68,9 +69,13 @@ function App() {
   }
 
   const send = async () => {
+    setIsLoading(true)
     setSendState(await sendData(answer))
   }
-useEffect(()=>{if (sendState) localStorage.setItem('25042026send', 'true')},[sendState])
+useEffect(()=>{if (sendState) {localStorage.setItem('25042026send', 'true')}
+   // eslint-disable-next-line react-hooks/set-state-in-effect
+   setIsLoading(false)
+},[sendState])
 
   if (!guest) return
 
@@ -101,7 +106,7 @@ useEffect(()=>{if (sendState) localStorage.setItem('25042026send', 'true')},[sen
 
       <ValeraInfo />
       <Message setMessage={setMessage} />
-      <Footer onSubmit={send} isCanSand={!sendState &&  !!answer.isHasBeen &&!localStorage.getItem('25042026send') }/>
+      <Footer onSubmit={send} isCanSand={!sendState &&  !!answer.isHasBeen &&!localStorage.getItem('25042026send')&& !isLoading }/>
     </div>
   )
 }
